@@ -17,7 +17,7 @@ public class SeasonalTemperature {
 			if((i+1) % eachSeasons == 0) {
 				//System.out.println(seasons[season]);
 				seasonTemperature = seasonTemperature + T[i];
-				System.out.println("seasonTemperature >>> : "+seasonTemperature);
+				System.out.println(seasons[season] + " >>> : "+seasonTemperature);  // seasonTemperature
 				if(highestTemp < seasonTemperature) {
 					highestTemp = seasonTemperature;
 					result = "The Highest Temperature is " +highestTemp+ " in the " + seasons[season] + " Season on the year.";
