@@ -17,11 +17,10 @@ public class AmplitudeTemperature {
 		String result = "";
 		int amplitudeTemp = 0;
 		int season = 0;
-		int i = 0;
 		
 		List<Integer> seasonTemp = new ArrayList<Integer>();
 		
-		for (i = 0; i < T.length ; i++) {
+		for (int i = 0; i < T.length ; i++) {
 			
 			// Condition for season changing
 			if((i+1) % (T.length / seasons.length) == 0) {
