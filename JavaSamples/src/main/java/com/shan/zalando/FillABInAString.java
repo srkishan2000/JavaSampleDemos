@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 public class FillABInAString {
 
-	static StringBuffer str = new StringBuffer();
+	static StringBuffer str;
 	
 	public static String solution(int A, int B) throws InterruptedException {
 		MainThread thread1 = new MainThread("a", A);
@@ -18,7 +18,16 @@ public class FillABInAString {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		System.out.println(solution(10, 8));
+		 System.out.println("solution(10, 8) : " + solution(10, 8));
+		 
+		 System.out.println("solution(5, 5) : " + solution(5, 5));
+		 
+		 System.out.println("solution(100, 0) : " + solution(100, 0));
+		 
+		 System.out.println("solution(0, 25) : " + solution(0, 25));
+		 
+		 System.out.println("solution(5, 30) : " + solution(5, 30));
+		 
 	}
 
 	// Thread class
@@ -33,7 +42,7 @@ public class FillABInAString {
 		}
 
 		@Override
-		public void run() {
+		public synchronized void run() {
 			//System.out.println("Thread running " + threadName);
 			for (int i = 0; i < maxLimit; i++) {
 				//System.out.println(i);
@@ -49,6 +58,7 @@ public class FillABInAString {
 
 		public void start() {
 			//System.out.println("Thread started");
+			str = new StringBuffer();
 			if (mainThread == null) {
 				mainThread = new Thread(this, threadName);
 				mainThread.start();
