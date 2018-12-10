@@ -1,8 +1,9 @@
 package com.shan.zalando;
 
+import static java.lang.Math.abs;
+
 import java.util.ArrayList;
 import java.util.List;
-import static java.lang.Math.abs;
 
 public class AmplitudeTemperature {
 	
