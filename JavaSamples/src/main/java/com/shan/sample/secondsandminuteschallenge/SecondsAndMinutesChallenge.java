@@ -31,23 +31,25 @@ package com.shan.sample.secondsandminuteschallenge;
  */
 
 public class SecondsAndMinutesChallenge {
+	
+	private static final String INVALID_VALUE_MESSAGE = "Invalid Value ..." ;
 
 	public static String getDurationString (long minutes, long seconds) {
 		
 		if ( minutes < 0 || (seconds < 0 || seconds > 59)) {
-			return "Invalid Value ...";
+			return INVALID_VALUE_MESSAGE;
 		}
 		
 		long hours = minutes / 60;
 		long remainingMinutes = minutes % 60;
 		
-		return  hours + "h " + remainingMinutes + "m " + seconds + "s";
+		return  leadingZeroPrefix(hours) + "h " + leadingZeroPrefix(remainingMinutes) + "m " + leadingZeroPrefix(seconds) + "s";
 		
 	}
 	
 	public static String getDurationString (long seconds) {
 		if ( seconds < 0 ) {
-			return "Invalid Value ...";
+			return INVALID_VALUE_MESSAGE;
 		}
 		
 		long minutes = seconds / 60;
@@ -56,15 +58,24 @@ public class SecondsAndMinutesChallenge {
 		return getDurationString(minutes, remainingSeconds);
 	}
 	
+	private static String leadingZeroPrefix(long unit) {
+		if (unit >= 0 && unit < 10) {
+			return "0" + String.valueOf(unit);
+		}
+		return String.valueOf(unit);
+	}
+	
 	public static void main(String[] args) {
 		
 		System.out.println(getDurationString(61,00));
 		
 		System.out.println(getDurationString(75,30));
 		
-		System.out.println(getDurationString(1500));
+		System.out.println(getDurationString(1500L));
 		
-		System.out.println(getDurationString(30674));
+		System.out.println(getDurationString(30674L));
+		
+		System.out.println(getDurationString(-74));
 		
 	}
 
