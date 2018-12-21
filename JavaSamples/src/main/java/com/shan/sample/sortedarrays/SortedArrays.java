@@ -12,12 +12,15 @@ public class SortedArrays {
 	
 	/*
 	 * 
+	 * References
+	 * ----------
+	 * 
 	 * Java 8 Comparator – How to sort a List - very good samples of sorting
 	 * https://reversecoding.net/java-8-comparator-how-to-sort-a-list/
 	 * 
 	 * ========================================================================
 	 * 
-	 * object compares for ascending and descending
+	 * Java 8 Lambda Comparator example for Sorting List of Custom Objects
 	 * https://beginnersbook.com/2017/10/java-8-lambda-comparator-example-for-sorting-list-of-custom-objects/
 	 * 
 	 * ========================================================================
