@@ -7,6 +7,9 @@ import java.util.List;
 // DivBy2Or3Or5OR3And5 between 1 to 100
 
 public class DivBy2Or3Or5OR3And5{
+	
+	public static final int MIN = 1;
+	public static final int MAX = 100;
 		
 	public static void main (String args[]) {
 		
@@ -49,8 +52,8 @@ public class DivBy2Or3Or5OR3And5{
 		
 		@Override
 		public void run() {
-			// Range between 1 to 100 including
-			for (int i = 1; i <= 100; i++) {
+			// Range between MIN to MAX including
+			for (int i = MIN; i <= MAX; i++) {
 
 				int counter = 0;
 				for (int j = 0; j < divisor.length; j++) {
