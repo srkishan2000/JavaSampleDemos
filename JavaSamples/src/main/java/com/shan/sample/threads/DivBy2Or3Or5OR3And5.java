@@ -26,6 +26,10 @@ public class DivBy2Or3Or5OR3And5{
 		Thread t4 = new DivThread("Div by 3 and 5", divisor3and5);
 		t4.start();
 		
+		int[] divisor2and5and10 = {2,5,10};
+		Thread t5 = new DivThread("Div by 2 and 5 and 10", divisor2and5and10);
+		t5.start();
+		
 	}
 	
 	public static class DivThread extends Thread {
@@ -45,21 +49,24 @@ public class DivBy2Or3Or5OR3And5{
 		
 		@Override
 		public void run() {
-			
+			// Range between 1 to 100 including
 			for (int i = 1; i <= 100; i++) {
-				if ((divisor.length == 1) && (i % divisor[0] == 0)) {
-//					System.out.println( this.name + " : " + i );
-					list.add(i);
+
+				int counter = 0;
+				for (int j = 0; j < divisor.length; j++) {
+					int k = divisor[j];
+					 if ((i % k == 0)) {
+						 counter ++;
+					 }
 				}
 				
-				if ((divisor.length == 2) && (i % divisor[0] == 0) && (i % divisor[1] == 0)) {
-//					System.out.println( this.name + " : " + i );
-					list.add(i);
+				if (divisor.length == counter) {
+//				System.out.println( this.name + " : " + i );
+				list.add(i);
 				}
 			}
 			
-		System.out.println(this.name + " has number of results " + list.size() + " : " + Arrays.toString(list.toArray()));
-			
+			System.out.println(this.name + " has number of results " + list.size() + " : " + Arrays.toString(list.toArray()));	
 		}
 		
 	}
