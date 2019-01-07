@@ -18,7 +18,7 @@ public class PrintRandomNumbers {
 		
 		Supplier<Integer> randomSupplier = () -> random.nextInt(LIMIT_RANGE);	
 		for (int i = 0; i < 10; i++) {
-			System.out.println(">>> : " + randomSupplier.get());
+			System.out.println("using LAMBDA >>> : " + randomSupplier.get());
 		}
 
 	}
