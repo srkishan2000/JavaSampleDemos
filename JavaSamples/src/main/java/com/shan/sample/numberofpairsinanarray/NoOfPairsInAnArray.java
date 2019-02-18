@@ -33,9 +33,7 @@ public class NoOfPairsInAnArray {
 
     }
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
+	public static void main(String[] args) {		
 		int[] ar = {10, 20, 20, 10, 10, 30, 50, 10, 2};
 		
 		System.out.println(sockMerchant(9, ar));
