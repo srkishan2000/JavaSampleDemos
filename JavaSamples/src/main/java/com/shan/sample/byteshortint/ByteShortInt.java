@@ -17,9 +17,9 @@ public class ByteShortInt {
 		 */
 		
 		// int has the width of 32;
-		int intMinValue = -2_147_483_648;
-		int intMaxValue = 2_147_483_647;
-		int intTotal = (intMinValue / 2);
+//		int intMinValue = -2_147_483_648;
+//		int intMaxValue = 2_147_483_647;
+//		int intTotal = (intMinValue / 2);
 		
 		/*
 		 	So the next data type I want to discuss is called a 'byte'. So we can type this like:
@@ -34,11 +34,11 @@ public class ByteShortInt {
 		 */
 		
 		// byte has the width of 8;
-		byte byteMinValue = -128;
-		byte byteMaxValue = 127;
-		// variable which is type 'byte'. But Java has converted that automatically to an 'integer' by default, 
-		// when you're making an assignment. in an expression, Java converts that to an 'integer'. need byte casting	
-		byte byteTotal = (byte) (byteMinValue / 2);
+//		byte byteMinValue = -128;
+//		byte byteMaxValue = 127;
+//		// variable which is type 'byte'. But Java has converted that automatically to an 'integer' by default, 
+//		// when you're making an assignment. in an expression, Java converts that to an 'integer'. need byte casting	
+//		byte byteTotal = (byte) (byteMinValue / 2);
 		
 		/*
 		 	Now a 'short', that value for a 'short', we'll put 'myShortValue'
@@ -51,9 +51,9 @@ public class ByteShortInt {
 		 */
 		
 		// short has the width of 16;
-		short shortMinValue = -32768;
-		short shortMaxValue = 32767;
-		short shortTotal = (short) (shortMinValue / 2);
+//		short shortMinValue = -32768;
+//		short shortMaxValue = 32767;
+//		short shortTotal = (short) (shortMinValue / 2);
 		
 		/*
 		 	where you've got a number that you want to process that is larger than the amount for an 'int'. and we call that a 'long'.
@@ -61,7 +61,7 @@ public class ByteShortInt {
 		*/
 		
 		// long has the width of 64;
-		long myLongValue = 9_223_372_036_854_775_807L;
+//		long myLongValue = 9_223_372_036_854_775_807L;
 		
 		
 		

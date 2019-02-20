@@ -30,7 +30,7 @@ public class CalculateScore {
 	private static int findNoOfgroups (String[] T) {
 		//int noOfGroups = 0;
 		//String groupName = "";
-		List<String> categories = new ArrayList<String>();
+		List<String> categories = new ArrayList<>();
 		for(int i = 0; i < T.length ; i++) {
 			String[] grpName = T[i].split("(?<=[0-9])(?=[a-zA-Z])");
 			
@@ -50,10 +50,10 @@ public class CalculateScore {
 	private static int findHowManyGroupsPassed(String[] T, String[] R) {
 		if(T.length != R.length) { return 0;}
 		
-		List<String> finalPassedList = new ArrayList<String>();
-		List<String> manyGroup = new ArrayList<String>();
-		List<String> singleGroup = new ArrayList<String>();
-		List<String> passedCategories = new ArrayList<String>();
+		List<String> finalPassedList = new ArrayList<>();
+		List<String> manyGroup = new ArrayList<>();
+		List<String> singleGroup = new ArrayList<>();
+		List<String> passedCategories = new ArrayList<>();
 		int count = 0;
 		
 		for (int i = 0; i < R.length; i++) {
@@ -70,7 +70,7 @@ public class CalculateScore {
 	    		}
 			
 			if(R[i].equals("OK")) {
-				if(singleGroup.contains(grpName))
+//				if(singleGroup.contains(grpName))
 		
 				System.out.println(T[i]+"-"+R[i]);
 				passedCategories.add(T[i]);
@@ -86,8 +86,8 @@ public class CalculateScore {
 		System.out.println("###########   :  "+passedCategories.size() + " , " + passedCategories);
 		System.out.println("XXXX "+count);
 		
-		List<String> noOfPassedSingleGroups = new ArrayList<String>();
-		List<String> noOfPassedManyGroups = new ArrayList<String>();
+		List<String> noOfPassedSingleGroups = new ArrayList<>();
+		List<String> noOfPassedManyGroups = new ArrayList<>();
 		
 		for(String str: passedCategories) {
 			String[] grpName = str.split("(?<=[0-9])(?=[a-zA-Z])");
@@ -112,29 +112,26 @@ public class CalculateScore {
 		// Verify Many group is passed or not
 		//int passedManyGroup = 0;
 	
+				
 		
-		List<String> manyGroupsVerifyList = new ArrayList<String>();
-		String tempGroupName = "";
-		
-		
-			for (String passed : passedCategories) {
-				String[] passeGrpName = passed.split("(?<=[0-9])(?=[a-zA-Z])");
-				if(passeGrpName.length > 1 && passeGrpName[1] != null && !passeGrpName[1].isEmpty()) {
-					
-					List<String> filteredManyGroups = manyGroup.stream().filter(i -> i.contains(passeGrpName[0])).collect(Collectors.toList());
-			        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "+filteredManyGroups);
-					
-			        List<String> filteredPassedGroups = passedCategories.stream().filter(i -> i.contains(passeGrpName[0])).collect(Collectors.toList());
-			        System.out.println("BBBB BBBBBBBBBBBBBBBBBBBBBBBBBBB  "+filteredPassedGroups);
-					
-			        if(filteredManyGroups.equals(filteredPassedGroups) && !finalPassedList.contains(passeGrpName[0])) {
-			        		finalPassedList.add(passeGrpName[0]);
-			        }
-					
-					
-				}
+		for (String passed : passedCategories) {
+			String[] passeGrpName = passed.split("(?<=[0-9])(?=[a-zA-Z])");
+			if(passeGrpName.length > 1 && passeGrpName[1] != null && !passeGrpName[1].isEmpty()) {
+				
+				List<String> filteredManyGroups = manyGroup.stream().filter(i -> i.contains(passeGrpName[0])).collect(Collectors.toList());
+		        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "+filteredManyGroups);
+				
+		        List<String> filteredPassedGroups = passedCategories.stream().filter(i -> i.contains(passeGrpName[0])).collect(Collectors.toList());
+		        System.out.println("BBBB BBBBBBBBBBBBBBBBBBBBBBBBBBB  "+filteredPassedGroups);
+				
+		        if(filteredManyGroups.equals(filteredPassedGroups) && !finalPassedList.contains(passeGrpName[0])) {
+		        		finalPassedList.add(passeGrpName[0]);
+		        }
+				
 				
 			}
+			
+		}
 			
 		System.out.println("OOOOOOOOOOOOOOOOOOO finalPassedList : "+finalPassedList.size() +", "+finalPassedList);
 		System.out.println("###########  noOfPassedSingleGroups   :  "+noOfPassedSingleGroups.size() + " , " + noOfPassedSingleGroups);

@@ -55,33 +55,41 @@ public class MorseCode {
 		BufferedReader read = new BufferedReader(f1);
 		List<String> alphabets = Arrays.asList(ALPHABET);
 		
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		
-		while((line = read.readLine()) != null) {
-			// Let's assume that every character is separated from each other with a space
-			String[] words = line.split(" ");
-			if (words.length > 0) {  int wl = 0;
-				for (String word : words) {
-					int i = 0;
-					while (i < word.length()) {
-						String c = String.valueOf(word.charAt(i)).toUpperCase();
-						if (alphabets.contains(c)) {
-							sb.append(MORSE[alphabets.indexOf(c)] + " ");	
-						} else {
-			            	throw new Exception ("invalid character to MORSE" + c );
-			            }
-						i++;
+		try {
+			while((line = read.readLine()) != null) {
+				// Let's assume that every character is separated from each other with a space
+				String[] words = line.split(" ");
+				if (words.length > 0) {  int wl = 0;
+					for (String word : words) {
+						int i = 0;
+						while (i < word.length()) {
+							String c = String.valueOf(word.charAt(i)).toUpperCase();
+							if (alphabets.contains(c)) {
+								sb.append(MORSE[alphabets.indexOf(c)] + " ");	
+							} else {
+				            	throw new Exception ("invalid character to MORSE" + c );
+				            }
+							i++;
+						}
+						wl++;
+						if(!(wl == words.length))
+							sb.append("/ ");
 					}
-					wl++;
-					if(!(wl == words.length))
-						sb.append("/ ");
-				}
-			} 
+				} 
+			}
+			
+			Files.write(Paths.get(outputPath), sb.toString().getBytes());
+			System.out.println("File saved to this location = " + outputPath);
+			
+		} finally {
+			// handle finally clause
+			read.close();
 		}
-	
-		Files.write(Paths.get(outputPath), sb.toString().getBytes());
-		System.out.println("File saved to this location = " + outputPath);
-		read.close();
+		
+		
+		
     }
 
     public static void morseDecoding(String inputPath, String outputPath) throws Exception
@@ -92,7 +100,7 @@ public class MorseCode {
 		FileReader fr = new FileReader(new File(inputPath));
 		BufferedReader read = new BufferedReader(fr);
 		
-		StringBuffer sb = new StringBuffer();	
+		StringBuilder sb = new StringBuilder();	
 		
 		while((line = read.readLine()) != null) {
 			if (line.contains("/")) {
@@ -116,7 +124,7 @@ public class MorseCode {
     }
     
     
-    private static void handlingWordsinDecodingProcess(StringBuffer sb, String[] chars) throws Exception {
+    private static void handlingWordsinDecodingProcess(StringBuilder sb, String[] chars) throws Exception {
     	for (String morseCode : chars) {		
     		List<String> morse = Arrays.asList(MORSE);	
     		if(morse.contains(morseCode)) {

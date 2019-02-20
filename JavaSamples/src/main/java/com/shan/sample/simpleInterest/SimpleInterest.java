@@ -1,4 +1,4 @@
-package com.shan.sample.simpleInterest;
+package com.shan.sample.simpleinterest;
 
 import java.util.Scanner;
 
@@ -42,6 +42,8 @@ public class SimpleInterest {
         float si;
         si = (r * t * p) / 100;
         System.out.print("The Simple Interest is : " + si);
+        
+        s.close();
 		
 	}
 

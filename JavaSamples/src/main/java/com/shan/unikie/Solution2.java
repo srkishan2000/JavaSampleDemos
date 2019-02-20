@@ -61,33 +61,6 @@ public class Solution2 {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	private int sum (int a , int b) {
-		
-		
-		
-		
-		
-		
-		
-		
-		return 0;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	// Get hottest temperature
 	public static int maxTemp(int[] array)
 	{

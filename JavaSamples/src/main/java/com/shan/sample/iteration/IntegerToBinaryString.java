@@ -2,9 +2,9 @@ package com.shan.sample.iteration;
 
 public class IntegerToBinaryString {
 	
-	private String binaryString;
+//	private String binaryString;
 
-	public String IntegerToBinaryString(Integer integer) {
+	public String integerToBinaryString(Integer integer) {
 		return Integer.toBinaryString(integer);
 	}
 

@@ -1,8 +1,5 @@
 package com.shan.sample.dayoftheprogrammer;
 
-import java.time.Year;
-import java.time.format.DateTimeFormatter;
-
 public class DayOfTheProgrammer {
 	
 	private static int DAY_OF_THE_PROGRAMMER = 256;
