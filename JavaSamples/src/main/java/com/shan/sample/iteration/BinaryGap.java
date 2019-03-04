@@ -16,7 +16,7 @@ public class BinaryGap {
 	}
 	
 	public static void main(String[] args) {
-		int[] tests = { 9, 37, 0b100100001010001 };
+		int[] tests = { 9, 37, 0b100100001010001, 5, 13};
 		for (int i : tests)
 		    System.out.printf("input = %d, Binary form = %s, Answer = %d%n",
 		        i , Integer.toBinaryString(i), solution(i));
