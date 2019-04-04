@@ -1,5 +1,7 @@
 package com.shan.sample.iteration;
 
+import java.util.stream.IntStream;
+
 public class SeasonalTemperature {
 	
 	public static String solution(int[] T) {
@@ -43,10 +45,31 @@ public class SeasonalTemperature {
 		return result;
 	}
 	
+	// Perfect Solution - 100%
+	public static String solutionEXT(int[] T) {
+	    final int count = T.length / 4;
+	    int indx = 0;
+	    int last = Integer.MIN_VALUE;
+	    for (int i = 0; i < 4; ++i) {
+	        int diff = IntStream.of(T).skip(count * i).limit(count).max().getAsInt()
+	                 - IntStream.of(T).skip(count * i).limit(count).min().getAsInt();
+	        if (diff > last) {
+	            indx = i;
+	            last = diff;
+	        }
+	    }
+	    final String[] seasons = { "WINTER", "SPRING", "SUMMER", "AUTUMN" };
+	    return seasons[indx];
+	}
+	
+	
 	public static void main(String[] args) {
 		
 		int[] test1 = {2, 1, 1, 10, 2, 13, 3, -18};
 		System.out.println(solution(test1));  // FIX -  WRONG ANSWER  (got SUMMER expected AUTUMN) 
+		
+		int[] testExt = {2, 1, 1, 10, 2, 13, 3, -18};
+		System.out.println(solutionEXT(testExt));
 		
 			/*int[] test1 = {-2, -10, 2, 10, 15, 30, 15, 5 };
 			System.out.println(solution(test1));  // Summer 45
