@@ -13,17 +13,25 @@ public class CalculateScore {
 		
 		
 		
-		//String[] R= {"Wrong answer", "OK", "OK", "Runtime error", "OK"};
-		//String[] T= {"codility1", "codility3", "codility2", "codility4b", "codility4a"}; 
+		String[] R= {"Wrong answer", "OK", "OK", "Runtime error", "OK"};
+		String[] T= {"codility1", "codility3", "codility2", "codility4b", "codility4a"}; 
 		
-		String[] R= {"Wrong answer", "OK", "Runtime error", "OK", "Time limit exceeded"};
-		String[] T= {"test1a", "test2", "test1b", "test1c", "test3"};
+		System.out.println(findHowManyGroupsPassed(T,R));		
+	
+		System.out.println("*********");
 		
+		String[] R1= {"Wrong answer", "OK", "Runtime error", "OK", "Time limit exceeded"};
+		String[] T1= {"test1a", "test2", "test1b", "test1c", "test3"};
+		
+		System.out.println("*********");
 			
-				
+		String[] R2= {"Wrong answer", "OK", "OK", "OK", "OK"};
+		String[] T2= {"codility1", "codility3", "codility2", "codility4b", "codility4a"}; 
+		System.out.println("*********");
+		System.out.println(findHowManyGroupsPassed(T2,R2));		
 				
 		//int noOfGroups = findNoOfgroups(T);
-		findHowManyGroupsPassed(T,R);
+		findHowManyGroupsPassed(T1,R1);
 		    
 	}
 	
@@ -42,7 +50,7 @@ public class CalculateScore {
 	    		}
 	    	}
 			
-		System.out.println("###########   :  "+categories.size() + " , " + categories);
+		System.out.println("###########   categories.size :  "+categories.size() + " , " + categories);
 		
 		return categories.size();
 	}
@@ -81,9 +89,9 @@ public class CalculateScore {
 		}
 		
 		
-		System.out.println("###########   :  "+singleGroup.size() + " , " + singleGroup);
-		System.out.println("###########   :  "+manyGroup.size() + " , " + manyGroup);
-		System.out.println("###########   :  "+passedCategories.size() + " , " + passedCategories);
+		System.out.println("###########  singleGroup.size  :  "+singleGroup.size() + " , " + singleGroup);
+		System.out.println("###########  manyGroup.size :  "+manyGroup.size() + " , " + manyGroup);
+		System.out.println("###########  passedCategories.size :  "+passedCategories.size() + " , " + passedCategories);
 		System.out.println("XXXX "+count);
 		
 		List<String> noOfPassedSingleGroups = new ArrayList<>();
@@ -142,7 +150,7 @@ public class CalculateScore {
 		
 		System.out.println("Result is : "+ result);
 		
-		return 0;
+		return result;
 	}
 	
 	

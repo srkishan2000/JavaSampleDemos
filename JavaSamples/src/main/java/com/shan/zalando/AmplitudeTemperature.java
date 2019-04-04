@@ -4,6 +4,7 @@ import static java.lang.Math.abs;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class AmplitudeTemperature {
 	
@@ -49,6 +50,24 @@ public class AmplitudeTemperature {
 		return result;
 	}
 	
+	
+	
+	public static String solutionEXT(int[] T) {
+	    final int count = T.length / 4;
+	    int indx = 0;
+	    int last = Integer.MIN_VALUE;
+	    for (int i = 0; i < 4; ++i) {
+	        int diff = IntStream.of(T).skip(count * i).limit(count).max().getAsInt()
+	                 - IntStream.of(T).skip(count * i).limit(count).min().getAsInt();
+	        if (diff > last) {
+	            indx = i;
+	            last = diff;
+	        }
+	    }
+	    final String[] seasons = { "WINTER", "SPRING", "SUMMER", "AUTUMN" };
+	    return seasons[indx];
+	}
+	
 
 	// Method for getting the maximum value
 	public static int getMax(Object[] objects) {
@@ -73,12 +92,17 @@ public class AmplitudeTemperature {
 	}
 
 	public static void main(String[] args) {
-		int[] T = {-2, -1 , -3, 5, 5, 10, 6, 7}; // -2,-1  -3,5  5,10  6,7  // 3 - 8 - 15 - 13 // SUMMER
-		System.out.println(solution(T));
+//		int[] T = {-2, -1 , -3, 5, 5, 10, 6, 7}; // -2,-1  -3,5  5,10  6,7  // 3 - 8 - 15 - 13 // SUMMER
+//		System.out.println(solution(T));
+//		
+//		int[] T1 = {-2, -1, 0, -3, 5, 2, 5, 10, 8, 10, 18, 6};  //  -2,0   -3,5   5,10  6,18   // 2 - 8 - 15 - 24 // AUTUMN
+//		System.out.println(solution(T1));
+//		
+		int[] T2 = {-3, -14, -5, 7, 8, 42, 8, 3};
+		System.out.println(solutionEXT(T2));
 		
-		int[] T1 = {-2, -1, 0, -3, 5, 2, 5, 10, 8, 10, 18, 6};  //  -2,0   -3,5   5,10  6,18   // 2 - 8 - 15 - 24 // AUTUMN
-		System.out.println(solution(T1));
-
+		int[] T3 = {2,-3,3,1,10,8,2,5,13, -5, 3, -18};
+		System.out.println(solutionEXT(T3));
 	}
 	
 	
