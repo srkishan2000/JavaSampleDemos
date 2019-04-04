@@ -52,8 +52,9 @@ public class CalculateScore1 {
 					newHash.put(T[count.get()], r);
 					count.getAndIncrement();
 				});
-		
-		int finalPassedListOfGroup = 0;
+// old type		
+//		int finalPassedListOfGroup = 0;
+		AtomicInteger finalPassedListOfGroup = new AtomicInteger(0);
 		List<String> doneTest = new ArrayList<>();
 		for(int i=0; i < T.length; i++) {
 			if(!doneTest.contains(T[i])) {
@@ -61,19 +62,31 @@ public class CalculateScore1 {
 				List<String> groups = Arrays.asList(T).stream()
 						.filter(t -> t.startsWith(groupName))
 						.collect(Collectors.toList());
+// old type				
+//				int passedInGroups = 0;
+//				for(String group : groups) {
+//					if(newHash.get(group).equals("OK")) 
+//						passedInGroups++;
+//					doneTest.add(group);
+//					if(passedInGroups == groups.size())
+//						finalPassedListOfGroup++;
+//				}
 				
-				int passedInGroups = 0;
-				for(String group : groups) {
-					if(newHash.get(group).equals("OK")) 
-						passedInGroups++;
-					doneTest.add(group);
-					if(passedInGroups == groups.size())
-						finalPassedListOfGroup++;
-				}
+				AtomicInteger passedInGroups = new AtomicInteger(0);
+				groups.stream().forEach(g -> {
+					if(newHash.get(g).equals("OK")) {
+						passedInGroups.getAndIncrement();
+					}
+					doneTest.add(g);
+					if(passedInGroups.get() == groups.size())
+						finalPassedListOfGroup.getAndIncrement();
+				});
+				
+				
 			}
 		}
 		
-		long result = finalPassedListOfGroup * 100 / noOfGroups(T);		
+		long result = finalPassedListOfGroup.get() * 100 / noOfGroups(T);		
 		System.out.println("Result is : "+ (int) result);		
 		return (int) result;
 	}
