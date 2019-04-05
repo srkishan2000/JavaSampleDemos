@@ -31,6 +31,12 @@ public class CalculateScore1 {
 		String[] T2= {"codility1", "codility3", "codility2", "codility4b", "codility4a"}; 
 		System.out.println(findHowManyGroupsPassed(T2,R2));	
 		
+		System.out.println("*********");
+		
+		String[] R3= {"Wrong answer", "OK", "OK", "OK", "OK","OK","OK","OK","Runtime error"};
+		String[] T3= {"codility1", "codility3", "codility2", "codility4b", "codility4a", "test1a", "test1b","test1c", "Test2"}; 
+		System.out.println(findHowManyGroupsPassed(T3,R3));	
+		
 	}
 	
 	
